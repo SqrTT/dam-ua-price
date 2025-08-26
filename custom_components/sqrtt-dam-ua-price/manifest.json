@@ -1,0 +1,12 @@
+{ "domain": "sqrtt-dam-ua-price",
+  "name": "UA Day Ahead Market Price (РДН)",
+  "version": "0.0.1",
+  "codeowners": ["@SqrTT"],
+  "dependencies": [],
+  "documentation": "https://github.com/SqrTT/dam-ua-price",
+  "integration_type": "hub",
+  "iot_class": "cloud_polling",
+  "requirements": [],
+  "config_flow": true,
+  "single_config_entry": true
+}

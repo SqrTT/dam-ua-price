@@ -54,7 +54,7 @@ def get_household_selling_price(
 ) -> float | None:
     rate = entity.coordinator.get_current_zone_rate()
     price = entity.coordinator.config_entry.data.get("price")
-    rdn_price = get_prices(entity)[0]
+    rdn_price = get_prices(entity)[1]
 
     if price is not None and rdn_price is not None:
         # vat = 1.2
@@ -66,10 +66,10 @@ def get_household_selling_price(
 def get_prices(
     entity: DAMPriceSensor,
 ) ->  tuple[float | None, float, float | None]:
-    data = entity.coordinator.get_data_current_day()
-    last_price_entries: float = 0
-    current_price_entries: float = 0
-    next_price_entries: float = 0
+    data = entity.coordinator.get_all_price_entries()
+    last_price_entries: float | None = None
+    current_price_entries: float | None = 0
+    next_price_entries: float | None = None
     current_time = dt_util.now().timestamp()
     previous_time = current_time - timedelta(hours=1).total_seconds()
     next_time = current_time + timedelta(hours=1).total_seconds()
@@ -81,6 +81,8 @@ def get_prices(
             last_price_entries = entry.value
         if entry is not None and entry.contains(next_time):
             next_price_entries = entry.value
+
+
     LOGGER.debug(
         "Last price %s, current price %s, next price %s",
         last_price_entries,

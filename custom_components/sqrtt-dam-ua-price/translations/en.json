@@ -56,10 +56,10 @@
                 "name": "Current price"
             },
             "current_household_price": {
-                "name": "Current household price"
+                "name": "Household price"
             },
             "current_household_selling_price": {
-                "name": "Current household selling price"
+                "name": "Selling household price"
             },
             "daily_average": {
                 "name": "Daily average"
@@ -108,10 +108,10 @@
             "message": "There was a connection error connecting to the API. Try again later."
         },
         "entry_not_found": {
-            "message": "The integration is not configured in Home Assistant."
+            "message": "The Nord Pool integration is not configured in Home Assistant."
         },
         "entry_not_loaded": {
-            "message": "The integration is currently not loaded or disabled in Home Assistant."
+            "message": "The Nord Pool integration is currently not loaded or disabled in Home Assistant."
         },
         "initial_update_failed": {
             "message": "Initial update failed on startup with error {error}"
@@ -126,7 +126,7 @@
                     "name": "Areas"
                 },
                 "config_entry": {
-                    "description": "The configuration entry for this action.",
+                    "description": "The Nord Pool configuration entry for this action.",
                     "name": "Config entry"
                 },
                 "currency": {
@@ -152,7 +152,7 @@
                     "name": "Areas"
                 },
                 "config_entry": {
-                    "description": "The configuration entry for this action.",
+                    "description": "The Nord Pool configuration entry for this action.",
                     "name": "Config entry"
                 },
                 "currency": {

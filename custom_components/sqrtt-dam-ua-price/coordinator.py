@@ -178,8 +178,17 @@ class DAMDataUpdateCoordinator(DataUpdateCoordinator[list[TimeRangePrice]]):
 
         self.async_set_update_error(Exception("No current day data"))
         return None
+    
+    def get_all_price_entries(self) -> list[TimeRangePrice]:
+        """Return all price entries."""
+        entries: list[TimeRangePrice] = []
 
-    def get_data_current_day(self):
+        for del_period in self.pricesDayData.values():
+            entries.extend(del_period)
+
+        return entries
+
+    def get_data_current_day(self) -> list[TimeRangePrice]:
         """Return the current day data."""
         current_day = dt_util.utcnow().astimezone(kiev_tz).strftime('%d.%m.%Y')
         delivery_period = self.pricesDayData.get(current_day)

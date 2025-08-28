@@ -1,1 +1,10 @@
 **/__pycache__/**
+
+
+# Dont commit the config folder.
+config/
+
+
+# Environments
+.env
+.venv
